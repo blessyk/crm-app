@@ -9,7 +9,12 @@ const app = express();
 connectDB();
 
 app.use(express.json());
-app.use(cors());
+app.use(
+  cors({
+    origin: "https://crm-appfrontend-n6mifcft5-blessyks-projects.vercel.app/",
+    credentials: true,
+  })
+);
 
 app.get("/", (req, res) => {
   res.send("CRM API Running");
